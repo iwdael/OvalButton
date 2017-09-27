@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="circleColor" format="color"></attr>
+    <attr name="unPressColor" format="color"></attr>
+    <attr name="pressedColor" format="color"></attr>
+    <attr name="duration" format="integer"></attr>
+    <attr name="sideLineColor" format="color"></attr>
+    <attr name="edgeLineWidth" format="dimension" />
+    <declare-styleable name="OvelButton">
+        <attr name="circleColor"></attr>
+        <attr name="unPressColor"></attr>
+        <attr name="pressedColor"></attr>
+        <attr name="duration"></attr>
+        <attr name="sideLineColor"></attr>
+        <attr name="edgeLineWidth" />
+    </declare-styleable>
+</resources>

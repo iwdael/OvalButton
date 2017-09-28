@@ -1,4 +1,4 @@
-package com.absurd.ovalbuttom;
+package com.absurd.ovalbutton;
 
 import android.animation.TypeEvaluator;
 import android.graphics.Color;

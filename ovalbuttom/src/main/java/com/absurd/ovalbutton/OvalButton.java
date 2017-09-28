@@ -1,4 +1,4 @@
-package com.absurd.ovalbuttom;
+package com.absurd.ovalbutton;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -38,6 +38,7 @@ public class OvalButton extends View {
     private Path mPath;
     private int mEdgeLineHeight;
     private boolean mCurrentIsSliding = false;
+    private float mAspectRatio = 5f / 2.8f;
 
     public OvalButton(Context context) {
         this(context, null);
@@ -71,7 +72,7 @@ public class OvalButton extends View {
         super.onLayout(changed, left, top, right, bottom);
         mRealWidth = getMeasuredWidth();
         mRealHeight = getMeasuredHeight();
-        if (mRealWidth / mRealHeight > 5.0f / 3.0f) {
+        if (mAspectRatio > 5.0f / 3.0f) {
             mHight = (int) mRealHeight;
             mWith = (int) (mRealHeight * 5.0f / 3.0f);
         } else {

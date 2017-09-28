@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.absurd.ovalbuttom.OvalButton
+    <com.absurd.ovalbutton.OvalButton
         app:unPressColor="#ffffff"
         app:sideLineColor="#cccccc"
         app:pressedColor="#4fd262"

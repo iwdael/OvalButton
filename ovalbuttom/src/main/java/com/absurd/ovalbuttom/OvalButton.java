@@ -1,5 +1,6 @@
 package com.absurd.ovalbuttom;
 
+import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -20,9 +21,11 @@ import android.view.animation.AccelerateDecelerateInterpolator;
  * Data: 2017/9/26.
  */
 
-public class OvelButton extends View {
+public class OvalButton extends View {
     private int mWith;
     private int mHight;
+    private float mRealWidth;
+    private float mRealHeight;
     private int mRadius;
     private int mCircleColor;
     private int mUnpressColor;
@@ -34,24 +37,25 @@ public class OvelButton extends View {
     private ObjectMessage mCurrentPoint;
     private Path mPath;
     private int mEdgeLineHeight;
+    private boolean mCurrentIsSliding = false;
 
-    public OvelButton(Context context) {
+    public OvalButton(Context context) {
         this(context, null);
     }
 
-    public OvelButton(Context context, AttributeSet attrs) {
+    public OvalButton(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public OvelButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public OvalButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        TypedArray ta = context.getTheme().obtainStyledAttributes(attrs, R.styleable.OvelButton, defStyleAttr, 0);
-        mCircleColor = ta.getColor(R.styleable.OvelButton_circleColor, Color.WHITE);
-        mUnpressColor = ta.getColor(R.styleable.OvelButton_unPressColor, Color.GRAY);
-        mPressedColor = ta.getColor(R.styleable.OvelButton_pressedColor, Color.GREEN);
-        mDration = ta.getInteger(R.styleable.OvelButton_duration, 500);
-        mSideLineColor = ta.getColor(R.styleable.OvelButton_sideLineColor, Color.GRAY);
-        mEdgeLineHeight = (int) ta.getDimension(R.styleable.OvelButton_edgeLineWidth, 1);
+        TypedArray ta = context.getTheme().obtainStyledAttributes(attrs, R.styleable.OvalButton, defStyleAttr, 0);
+        mCircleColor = ta.getColor(R.styleable.OvalButton_circleColor, Color.WHITE);
+        mUnpressColor = ta.getColor(R.styleable.OvalButton_unPressColor, Color.GRAY);
+        mPressedColor = ta.getColor(R.styleable.OvalButton_pressedColor, Color.GREEN);
+        mDration = ta.getInteger(R.styleable.OvalButton_duration, 500);
+        mSideLineColor = ta.getColor(R.styleable.OvalButton_sideLineColor, Color.GRAY);
+        mEdgeLineHeight = (int) ta.getDimension(R.styleable.OvalButton_edgeLineWidth, 3);
         ta.recycle();
         init();
     }
@@ -59,35 +63,25 @@ public class OvelButton extends View {
     private void init() {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
+        mPaint.setDither(true);
     }
-
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int specModeWidth = MeasureSpec.getMode(widthMeasureSpec);
-        float specWidth = MeasureSpec.getSize(widthMeasureSpec);
-        int specModeHight = MeasureSpec.getMode(heightMeasureSpec);
-        float specHight = MeasureSpec.getSize(heightMeasureSpec);
-        if (specModeWidth == MeasureSpec.EXACTLY & specModeHight == MeasureSpec.EXACTLY) {
-            if (specWidth / specHight > 5f / 3f) {
-                specWidth = specModeHight * 5f / 3f;
-            } else {
-                specHight = specWidth * 3f / 5f;
-            }
-        } else {
-            throw new RuntimeException("OvalButton onMeasure Error ! W:H = 5:3 ");
-        }
-        setMeasuredDimension((int) specWidth, (int) specHight);
-    }
-
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
+        mRealWidth = getMeasuredWidth();
+        mRealHeight = getMeasuredHeight();
+        if (mRealWidth / mRealHeight > 5.0f / 3.0f) {
+            mHight = (int) mRealHeight;
+            mWith = (int) (mRealHeight * 5.0f / 3.0f);
+        } else {
+            mWith = (int) mRealWidth;
+            mHight = (int) (mRealWidth * 3.0f / 5.0f);
+        }
         mWith = getMeasuredWidth();
         mHight = getMeasuredHeight();
         mRadius = (int) (mHight * 0.45f);
-        mCurrentPoint = new ObjectMessage(new Point(mHight / 2, mHight / 2), mUnpressColor);
+        mCurrentPoint = new ObjectMessage(new Point(mHight / 2, (int) (mRealHeight / 2)), mUnpressColor, mSideLineColor);
         mPath = new Path();
     }
 
@@ -95,7 +89,7 @@ public class OvelButton extends View {
     protected void onDraw(Canvas canvas) {
         canvas.save();
         mPath.reset();
-
+        mPaint.setAntiAlias(true);
         //background
         RectF bg = new RectF();
         bg.top = 0;
@@ -107,11 +101,11 @@ public class OvelButton extends View {
         canvas.drawRoundRect(bg, mHight / 2, mHight / 2, mPaint);
 
         //background line
-        mPath.addRoundRect(bg, mHight / 2, mHight / 2, Path.Direction.CCW);
-        mPaint.setColor(mSideLineColor);
-        mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(mEdgeLineHeight);
-        canvas.drawPath(mPath, mPaint);
+//        mPath.addRoundRect(bg, mHight / 2, mHight / 2, Path.Direction.CCW);
+//        mPaint.setColor(mSideLineColor);
+//        mPaint.setStyle(Paint.Style.STROKE);
+//        mPaint.setStrokeWidth(mCurrentPoint.lineColor);
+//        canvas.drawPath(mPath, mPaint);
 
         //circle
         mPaint.reset();
@@ -133,17 +127,20 @@ public class OvelButton extends View {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                mIsOpen = mIsOpen == true ? false : true;
-                startAnimation(mIsOpen);
-                return super.onTouchEvent(event);
+                if (mCurrentIsSliding == false) {
+                    mCurrentIsSliding = true;
+                    mIsOpen = mIsOpen == true ? false : true;
+                    startAnimation(mIsOpen);
+                }
+                break;
         }
-        return super.onTouchEvent(event);
+        return true;
     }
 
 
     private void startAnimation(boolean isOpen) {
-        ObjectMessage startPoint = new ObjectMessage(new Point(mHight / 2, mHight / 2), mUnpressColor);
-        ObjectMessage endPoint = new ObjectMessage(new Point(mWith - mHight / 2, mHight / 2), mPressedColor);
+        ObjectMessage startPoint = new ObjectMessage(new Point(mHight / 2, mHight / 2), mUnpressColor, mSideLineColor);
+        ObjectMessage endPoint = new ObjectMessage(new Point(mWith - mHight / 2, mHight / 2), mPressedColor, mPressedColor);
         ValueAnimator anim;
         if (isOpen)
             anim = ValueAnimator.ofObject(new PointEvaluator(), startPoint, endPoint);
@@ -154,6 +151,27 @@ public class OvelButton extends View {
             public void onAnimationUpdate(ValueAnimator animation) {
                 mCurrentPoint = (ObjectMessage) animation.getAnimatedValue();
                 invalidate();
+            }
+        });
+        anim.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animator) {
+                mCurrentIsSliding = false;
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) {
+
             }
         });
         anim.setInterpolator(new AccelerateDecelerateInterpolator());

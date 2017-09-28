@@ -6,7 +6,7 @@
     <attr name="duration" format="integer"></attr>
     <attr name="sideLineColor" format="color"></attr>
     <attr name="edgeLineWidth" format="dimension" />
-    <declare-styleable name="OvelButton">
+    <declare-styleable name="OvalButton">
         <attr name="circleColor"></attr>
         <attr name="unPressColor"></attr>
         <attr name="pressedColor"></attr>

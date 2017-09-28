@@ -7,13 +7,12 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.absurd.ovalbuttom.OvelButton
+    <com.absurd.ovalbuttom.OvalButton
         app:unPressColor="#ffffff"
         app:sideLineColor="#cccccc"
-        app:pressedColor="#00ff55"
+        app:pressedColor="#4fd262"
         app:circleColor="#ffffff"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="100dp" />
+        android:layout_width="50dp"
+        android:layout_height="30dp" />
 
 </LinearLayout>

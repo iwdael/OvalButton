@@ -11,6 +11,7 @@ import android.graphics.Path;
 import android.graphics.Point;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -38,7 +39,9 @@ public class OvalButton extends View {
     private Path mPath;
     private int mEdgeLineHeight;
     private boolean mCurrentIsSliding = false;
-    private float mAspectRatio = 5f / 2.8f;
+    private float mAspectRatio;
+    private float mOffsetWidth;
+    private float mOffsetHeight;
 
     public OvalButton(Context context) {
         this(context, null);
@@ -55,8 +58,9 @@ public class OvalButton extends View {
         mUnpressColor = ta.getColor(R.styleable.OvalButton_unPressColor, Color.GRAY);
         mPressedColor = ta.getColor(R.styleable.OvalButton_pressedColor, Color.GREEN);
         mDration = ta.getInteger(R.styleable.OvalButton_duration, 500);
-        mSideLineColor = ta.getColor(R.styleable.OvalButton_sideLineColor, Color.GRAY);
-        mEdgeLineHeight = (int) ta.getDimension(R.styleable.OvalButton_edgeLineWidth, 3);
+        mSideLineColor = ta.getColor(R.styleable.OvalButton_circleLineColor, Color.GRAY);
+        mEdgeLineHeight = (int) ta.getDimension(R.styleable.OvalButton_circleLineWidth, 3);
+        mAspectRatio = ta.getFloat(R.styleable.OvalButton_aspectRatio, 5f / 2.8f);
         ta.recycle();
         init();
     }
@@ -68,19 +72,19 @@ public class OvalButton extends View {
     }
 
     @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed, left, top, right, bottom);
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         mRealWidth = getMeasuredWidth();
         mRealHeight = getMeasuredHeight();
-        if (mAspectRatio > 5.0f / 3.0f) {
+        if (mRealWidth / mRealHeight > mAspectRatio) {
             mHight = (int) mRealHeight;
-            mWith = (int) (mRealHeight * 5.0f / 3.0f);
+            mWith = (int) (mRealHeight * mAspectRatio);
         } else {
             mWith = (int) mRealWidth;
-            mHight = (int) (mRealWidth * 3.0f / 5.0f);
+            mHight = (int) (mRealWidth / mAspectRatio);
         }
-        mWith = getMeasuredWidth();
-        mHight = getMeasuredHeight();
+        mOffsetWidth = (mRealWidth - mWith) / 2.0f;
+        mOffsetHeight = (mRealHeight - mHight) / 2.0f;
         mRadius = (int) (mHight * 0.45f);
         mCurrentPoint = new ObjectMessage(new Point(mHight / 2, (int) (mRealHeight / 2)), mUnpressColor, mSideLineColor);
         mPath = new Path();
@@ -93,10 +97,10 @@ public class OvalButton extends View {
         mPaint.setAntiAlias(true);
         //background
         RectF bg = new RectF();
-        bg.top = 0;
-        bg.left = 0;
-        bg.bottom = mHight;
-        bg.right = mWith;
+        bg.top = 0 + mOffsetHeight;
+        bg.left = 0 + mOffsetWidth;
+        bg.bottom = mHight + mOffsetHeight;
+        bg.right = mWith + mOffsetWidth;
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setColor(mCurrentPoint.color);
         canvas.drawRoundRect(bg, mHight / 2, mHight / 2, mPaint);
@@ -140,8 +144,8 @@ public class OvalButton extends View {
 
 
     private void startAnimation(boolean isOpen) {
-        ObjectMessage startPoint = new ObjectMessage(new Point(mHight / 2, mHight / 2), mUnpressColor, mSideLineColor);
-        ObjectMessage endPoint = new ObjectMessage(new Point(mWith - mHight / 2, mHight / 2), mPressedColor, mPressedColor);
+        ObjectMessage startPoint = new ObjectMessage(new Point(mHight / 2, (int) (mRealHeight / 2)), mUnpressColor, mSideLineColor);
+        ObjectMessage endPoint = new ObjectMessage(new Point(mWith - mHight / 2, (int) (mRealHeight / 2)), mPressedColor, mPressedColor);
         ValueAnimator anim;
         if (isOpen)
             anim = ValueAnimator.ofObject(new PointEvaluator(), startPoint, endPoint);

@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorAccent"
     android:gravity="center"
     android:orientation="vertical">
 
     <com.absurd.ovalbutton.OvalButton
-        app:unPressColor="#ffffff"
-        app:sideLineColor="#cccccc"
-        app:pressedColor="#4fd262"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        app:aspectRatio="3.0"
         app:circleColor="#ffffff"
-        android:layout_width="50dp"
-        android:layout_height="30dp" />
+        app:circleLineColor="#cccccc"
+        app:pressedColor="#4fd262"
+        app:unPressColor="#ffffff" />
 
 </LinearLayout>

@@ -4,14 +4,16 @@
     <attr name="unPressColor" format="color"></attr>
     <attr name="pressedColor" format="color"></attr>
     <attr name="duration" format="integer"></attr>
-    <attr name="sideLineColor" format="color"></attr>
-    <attr name="edgeLineWidth" format="dimension" />
+    <attr name="circleLineColor" format="color"></attr>
+    <attr name="circleLineWidth" format="dimension" />
+    <attr name="aspectRatio" format="float"></attr>
     <declare-styleable name="OvalButton">
         <attr name="circleColor"></attr>
         <attr name="unPressColor"></attr>
         <attr name="pressedColor"></attr>
         <attr name="duration"></attr>
-        <attr name="sideLineColor"></attr>
-        <attr name="edgeLineWidth" />
+        <attr name="circleLineColor"></attr>
+        <attr name="circleLineWidth" />
+        <attr name="aspectRatio"></attr>
     </declare-styleable>
 </resources>

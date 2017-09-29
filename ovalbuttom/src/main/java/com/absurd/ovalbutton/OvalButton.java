@@ -42,7 +42,8 @@ public class OvalButton extends View {
     private float mAspectRatio;
     private float mOffsetWidth;
     private float mOffsetHeight;
-    private OnButtonListener mListener;
+    private OnOvalButtonListener mListener;
+    private int Tag=0;
     public OvalButton(Context context) {
         this(context, null);
     }
@@ -136,7 +137,7 @@ public class OvalButton extends View {
                     mCurrentIsSliding = true;
                     mIsOpen = mIsOpen == true ? false : true;
                     if (mListener != null) {
-                        mListener.onClick(mIsOpen);
+                        mListener.onClick(mIsOpen,Tag);
                     }
                     startAnimation(mIsOpen);
                 }
@@ -196,13 +197,11 @@ public class OvalButton extends View {
         invalidate();
     }
 
-    public interface OnButtonListener {
-        void onClick(boolean status);
+    public void setTag(int tag) {
+        Tag = tag;
     }
 
-
-
-    public void setOnButtonListener(OnButtonListener listener) {
+    public void setOnButtonListener(OnOvalButtonListener listener) {
         mListener = listener;
     }
 }

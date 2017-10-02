@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="#ffffff"
     android:gravity="center"
     android:orientation="vertical">
 
     <com.absurd.ovalbutton.OvalButton
         android:layout_width="300dp"
         android:layout_height="200dp"
-        app:aspectRatio="3.0"
+        app:aspectRatio="2.0"
         app:circleColor="#ffffff"
-        app:circleLineColor="#cccccc"
+        app:circleLineColor="#bababa"
         app:pressedColor="#4fd262"
-        app:unPressColor="#ffffff" />
+        app:unPressColor="#d3d3d3" />
 
 </LinearLayout>

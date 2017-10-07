@@ -194,9 +194,11 @@ public class OvalButton extends View {
     }
 
     public void setStatus(boolean open) {
-        mIsOpen = open;
-        mCurrentIsSliding = true;
-        startAnimation(mIsOpen);
+        if (open!=mIsOpen){
+            mIsOpen = open;
+            mCurrentIsSliding = true;
+            startAnimation(mIsOpen);
+        }
     }
 
     public void setTag(int tag) {

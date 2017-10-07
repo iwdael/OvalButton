@@ -11,7 +11,6 @@ import android.graphics.Path;
 import android.graphics.Point;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -44,6 +43,8 @@ public class OvalButton extends View {
     private float mOffsetHeight;
     private OnOvalButtonListener mListener;
     private int Tag = 0;
+    private boolean mIsInitail = false;
+    private boolean mIsUnStatus = false;
 
     public OvalButton(Context context) {
         this(context, null);
@@ -90,6 +91,11 @@ public class OvalButton extends View {
         mRadius = (int) (mHight * 0.45f);
         mCurrentPoint = new ObjectMessage(new Point(mHight / 2, (int) (mRealHeight / 2)), mUnpressColor, mSideLineColor);
         mPath = new Path();
+        mIsInitail = true;
+        if (mIsUnStatus) {
+            mCurrentIsSliding = true;
+            startAnimation(mIsOpen);
+        }
     }
 
     @Override
@@ -194,10 +200,15 @@ public class OvalButton extends View {
     }
 
     public void setStatus(boolean open) {
-        if (open!=mIsOpen){
-            mIsOpen = open;
-            mCurrentIsSliding = true;
-            startAnimation(mIsOpen);
+        if (open != mIsOpen) {
+            if (mIsInitail) {
+                mIsOpen = open;
+                mCurrentIsSliding = true;
+                startAnimation(mIsOpen);
+            } else {
+                mIsOpen = open;
+                mIsUnStatus = true;
+            }
         }
     }
 

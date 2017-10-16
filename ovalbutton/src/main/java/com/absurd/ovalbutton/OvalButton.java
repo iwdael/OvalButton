@@ -93,9 +93,9 @@ public class OvalButton extends View {
         mPath = new Path();
         mIsInitail = true;
         if (mIsOpen) {
-            mCurrentPoint = new ObjectMessage(new Point(mWith - mHight / 2, (int) (mRealHeight / 2)), mPressedColor, mPressedColor);
+            mCurrentPoint = new ObjectMessage(new Point(mWith - mHight / 2, (int) (mRealHeight / 2)), mPressedColor, mSideLineColor);
         } else {
-            mCurrentPoint = new ObjectMessage(new Point(mHight / 2, (int) (mRealHeight / 2)), mPressedColor, mSideLineColor);
+            mCurrentPoint = new ObjectMessage(new Point(mHight / 2, (int) (mRealHeight / 2)), mUnpressColor, mSideLineColor);
         }
 
     }
@@ -205,9 +205,9 @@ public class OvalButton extends View {
         if (open != mIsOpen) {
             mIsOpen = open;
             if (mIsOpen) {
-                mCurrentPoint = new ObjectMessage(new Point(mWith - mHight / 2, (int) (mRealHeight / 2)), mPressedColor, mPressedColor);
+                mCurrentPoint = new ObjectMessage(new Point(mWith - mHight / 2, (int) (mRealHeight / 2)), mPressedColor, mSideLineColor);
             } else {
-                mCurrentPoint = new ObjectMessage(new Point(mHight / 2, (int) (mRealHeight / 2)), mPressedColor, mSideLineColor);
+                mCurrentPoint = new ObjectMessage(new Point(mHight / 2, (int) (mRealHeight / 2)), mUnpressColor, mSideLineColor);
             }
             invalidate();
         }

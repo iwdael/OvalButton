@@ -44,7 +44,7 @@ public class OvalButton extends View {
     private OnOvalButtonListener mListener;
     private int Tag = 0;
     private boolean mIsInitail = false;
-    private boolean mIsUnStatus = false;
+
 
     public OvalButton(Context context) {
         this(context, null);
@@ -89,13 +89,15 @@ public class OvalButton extends View {
         mOffsetWidth = (mRealWidth - mWith) / 2.0f;
         mOffsetHeight = (mRealHeight - mHight) / 2.0f;
         mRadius = (int) (mHight * 0.45f);
-        mCurrentPoint = new ObjectMessage(new Point(mHight / 2, (int) (mRealHeight / 2)), mUnpressColor, mSideLineColor);
+
         mPath = new Path();
         mIsInitail = true;
-        if (mIsUnStatus) {
-            mCurrentIsSliding = true;
-            startAnimation(mIsOpen);
+        if (mIsOpen) {
+            mCurrentPoint = new ObjectMessage(new Point(mWith - mHight / 2, (int) (mRealHeight / 2)), mPressedColor, mPressedColor);
+        } else {
+            mCurrentPoint = new ObjectMessage(new Point(mHight / 2, (int) (mRealHeight / 2)), mPressedColor, mSideLineColor);
         }
+
     }
 
     @Override
@@ -201,13 +203,22 @@ public class OvalButton extends View {
 
     public void setStatus(boolean open) {
         if (open != mIsOpen) {
-            if (mIsInitail) {
-                mIsOpen = open;
+            mIsOpen = open;
+            if (mIsOpen) {
+                mCurrentPoint = new ObjectMessage(new Point(mWith - mHight / 2, (int) (mRealHeight / 2)), mPressedColor, mPressedColor);
+            } else {
+                mCurrentPoint = new ObjectMessage(new Point(mHight / 2, (int) (mRealHeight / 2)), mPressedColor, mSideLineColor);
+            }
+            invalidate();
+        }
+    }
+
+    public void setStatusBySliding(boolean open) {
+        if (open != mIsOpen) {
+            mIsOpen = open;
+            if (mIsInitail = true) {
                 mCurrentIsSliding = true;
                 startAnimation(mIsOpen);
-            } else {
-                mIsOpen = open;
-                mIsUnStatus = true;
             }
         }
     }

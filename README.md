@@ -1,4 +1,4 @@
-# OvalButton  [![](https://www.jitpack.io/v/mr-absurd/ovalbutton.svg)](https://www.jitpack.io/#mr-absurd/ovalbutton)
+# OvalButton  [![](https://jitpack.io/v/aliletter/ovalbutton.svg)](https://jitpack.io/#aliletter/ovalbutton)
 OvalButton is an oval switch component that mimics the IOS operating system off the switch components and is equipped with similar animation effects.
 # How to
 To get a Git project into your build:
@@ -15,7 +15,7 @@ Add it in your root build.gradle at the end of repositories:
 ## Step 2. Add the dependency
 
 	dependencies {
-          compile 'com.github.mr-absurd:ovalbutton:v1.0.5'
+          compile 'com.github.aliletter:ovalbutton:v1.0.5'
           
 	}
  

@@ -1,12 +1,12 @@
 
 
-package com.absurd.ovelbutton;
+package com.aliletter.ovelbutton;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.absurd.ovalbutton.OvalButton;
+import com.aliletter.ovalbutton.OvalButton;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     OvalButton btn;

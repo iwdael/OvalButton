@@ -1,4 +1,4 @@
-package com.absurd.ovelbutton;
+package com.aliletter.ovelbutton;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -1,4 +1,4 @@
-package com.absurd.ovalbutton;
+package com.aliletter.ovalbutton;
 
 /**
  * Author: mr-absurd

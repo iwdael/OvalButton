@@ -51,7 +51,7 @@ OvalButton是一个椭圆形的IOS风格的开关控件，支持自定义宽高�
 	}
 ```	
 <br><br>
-![Text Image](https://github.com/aliletter/CustomProgress/blob/master/ovalbutton.gif)
+![Text Image](https://github.com/aliletter/OvalButton/blob/master/ovalbutton.gif)
 <br><br><br>
 ## 感谢浏览
 如果你有任何疑问，请加入QQ群，我将竭诚为你解答。欢迎Star和Fork本仓库，当然也欢迎你关注我。

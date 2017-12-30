@@ -47,7 +47,7 @@ Add it in your application module build.gradle at the end of dependencies where 
 	}
 ```	
 <br><br>
-![Text Image](https://github.com/aliletter/CustomProgress/blob/master/ovalbutton.gif)
+![Text Image](https://github.com/aliletter/OvalButton/blob/master/ovalbutton.gif)
 <br><br><br>
 ## Thank you for your browsing
 If you have any questions, please join the QQ group. I will do my best to answer it for you. Welcome to star and fork this repository, alse follow me.

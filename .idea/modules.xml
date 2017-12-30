@@ -3,13 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/OvalButton.iml" filepath="$PROJECT_DIR$/OvalButton.iml" />
-      <module fileurl="file://$PROJECT_DIR$/OvalButton.iml" filepath="$PROJECT_DIR$/OvalButton.iml" />
-      <module fileurl="file://$PROJECT_DIR$/OvelButton.iml" filepath="$PROJECT_DIR$/OvelButton.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ovalbuttom/ovalbuttom.iml" filepath="$PROJECT_DIR$/ovalbuttom/ovalbuttom.iml" />
+      <module fileurl="file://C:\Users\alile\Desktop\OvalButton\OvalButton.iml" filepath="C:\Users\alile\Desktop\OvalButton\OvalButton.iml" />
+      <module fileurl="file://C:\Users\alile\Desktop\OvalButton\OvelButton.iml" filepath="C:\Users\alile\Desktop\OvalButton\OvelButton.iml" />
+      <module fileurl="file://C:\Users\alile\Desktop\OvalButton\app\app.iml" filepath="C:\Users\alile\Desktop\OvalButton\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/app.iml" filepath="$PROJECT_DIR$/example/app.iml" />
+      <module fileurl="file://C:\Users\alile\Desktop\OvalButton\ovalbuttom\ovalbuttom.iml" filepath="C:\Users\alile\Desktop\OvalButton\ovalbuttom\ovalbuttom.iml" />
       <module fileurl="file://$PROJECT_DIR$/ovalbutton/ovalbutton.iml" filepath="$PROJECT_DIR$/ovalbutton/ovalbutton.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ovalbutton/ovalbutton.iml" filepath="$PROJECT_DIR$/ovalbutton/ovalbutton.iml" />
+      <module fileurl="file://C:\Users\alile\Desktop\OvalButton\ovalbutton\ovalbutton.iml" filepath="C:\Users\alile\Desktop\OvalButton\ovalbutton\ovalbutton.iml" />
     </modules>
   </component>
 </project>

@@ -1,1 +1,1 @@
-include ':app', ':ovalbutton'
+include ':example', ':ovalbutton'

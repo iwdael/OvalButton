@@ -1,15 +1,15 @@
-package com.aliletter.ovalbutton;
+package com.blackchopper.ovalbutton;
 
 import android.animation.TypeEvaluator;
 import android.graphics.Color;
 import android.graphics.Point;
 
 /**
- * Author: mr-absurd
- * Github: http://github.com/mr-absurd
- * Data: 2017/9/26.
+ * author  : Black Chopper
+ * e-mail  : 4884280@qq.com
+ * github  : http://github.com/BlackChopper
+ * project : OvalButton
  */
-
 public class PointEvaluator implements TypeEvaluator<ObjectMessage> {
     @Override
     public ObjectMessage evaluate(float v, ObjectMessage start, ObjectMessage end) {

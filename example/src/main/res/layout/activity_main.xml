@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.aliletter.ovalbutton.OvalButton
+    <com.blackchopper.ovalbutton.OvalButton
         android:id="@+id/btn"
         android:layout_width="300dp"
         android:layout_height="200dp"

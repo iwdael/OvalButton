@@ -1,13 +1,13 @@
-package com.aliletter.ovalbutton;
+package com.blackchopper.ovalbutton;
 
 import android.graphics.Point;
 
 /**
- * Author: mr-absurd
- * Github: http://github.com/mr-absurd
- * Data: 2017/9/26.
+ * author  : Black Chopper
+ * e-mail  : 4884280@qq.com
+ * github  : http://github.com/BlackChopper
+ * project : OvalButton
  */
-
 public class ObjectMessage {
     public Point point;
     public int color;

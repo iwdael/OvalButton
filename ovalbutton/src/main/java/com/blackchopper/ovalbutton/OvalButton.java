@@ -1,4 +1,4 @@
-package com.aliletter.ovalbutton;
+package com.blackchopper.ovalbutton;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -15,12 +15,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
-/**
- * Author: mr-absurd
- * Github: http://github.com/mr-absurd
- * Data: 2017/9/26.
- */
+import com.blackchopper.ovalbutton.R;
 
+/**
+ * author  : Black Chopper
+ * e-mail  : 4884280@qq.com
+ * github  : http://github.com/BlackChopper
+ * project : OvalButton
+ */
 public class OvalButton extends View {
     private int mWith;
     private int mHight;

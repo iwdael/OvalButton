@@ -43,7 +43,7 @@ Add it in your application module build.gradle at the end of dependencies where 
 ```Java
 	dependencies {
 	  ...
-          compile 'com.github.blackchopper:ovalbutton:v1.1.0'
+          compile 'com.github.blackchopper:ovalbutton:v1.1.1'
 	}
 ```	
 <br><br>

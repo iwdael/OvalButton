@@ -15,7 +15,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
-import com.blackchopper.ovalbutton.R;
 
 /**
  * author  : Black Chopper

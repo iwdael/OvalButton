@@ -47,7 +47,7 @@ OvalButton是一个椭圆形的IOS风格的开关控件，支持自定义宽高�
 ```Java
 	dependencies {
 	  ...
-          compile 'com.github.blackchopper:ovalbutton:v1.1.0'
+          compile 'com.github.blackchopper:ovalbutton:v1.1.1'
 	}
 ```	
 <br><br>

@@ -1,13 +1,13 @@
-package com.blackchopper.ovalbutton;
+package com.hacknife.ovalbutton;
 
 import android.animation.TypeEvaluator;
 import android.graphics.Color;
 import android.graphics.Point;
 
 /**
- * author  : Black Chopper
+ * author  : Hacknife
  * e-mail  : 4884280@qq.com
- * github  : http://github.com/BlackChopper
+ * github  : http://github.com/hacknife
  * project : OvalButton
  */
 public class PointEvaluator implements TypeEvaluator<ObjectMessage> {

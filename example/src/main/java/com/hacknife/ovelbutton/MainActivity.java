@@ -1,17 +1,17 @@
 
 
-package com.blackchopper.ovelbutton;
+package com.hacknife.ovelbutton;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.blackchopper.ovalbutton.OvalButton;
+import com.hacknife.ovalbutton.OvalButton;
 
 /**
- * author  : Black Chopper
+ * author  : Hacknife
  * e-mail  : 4884280@qq.com
- * github  : http://github.com/BlackChopper
+ * github  : http://github.com/hacknife
  * project : OvalButton
  */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {

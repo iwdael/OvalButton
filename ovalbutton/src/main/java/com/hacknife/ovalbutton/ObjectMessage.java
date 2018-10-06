@@ -1,11 +1,11 @@
-package com.blackchopper.ovalbutton;
+package com.hacknife.ovalbutton;
 
 import android.graphics.Point;
 
 /**
- * author  : Black Chopper
+ * author  : Hacknife
  * e-mail  : 4884280@qq.com
- * github  : http://github.com/BlackChopper
+ * github  : http://github.com/hacknife
  * project : OvalButton
  */
 public class ObjectMessage {

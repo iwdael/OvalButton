@@ -1,6 +1,6 @@
 # OvalButton
 [![](https://img.shields.io/badge/platform-android-orange.svg)](https://github.com/hacknife) [![](https://img.shields.io/badge/language-java-yellow.svg)](https://github.com/hacknife) [![](https://img.shields.io/badge/Jcenter-1.1.3-brightgreen.svg)](https://github.com/hacknife) [![](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/hacknife) [![](https://img.shields.io/badge/license-apache--2.0-green.svg)](https://github.com/hacknife) [![](https://img.shields.io/badge/api-19+-green.svg)](https://github.com/hacknife)<br/><br/>
-OvalButton是一个椭圆形的IOS风格的开关控件，支持自定义宽高比例，色彩等。[English](https://github.com/hacknife/OvalButton/blob/master/README_ENGLISH.md)
+OvalButton是一个椭圆形的IOS风格的开关控件，支持自定义宽高比例，色彩等。
 <br><br>![Text Image](https://github.com/hacknife/OvalButton/blob/master/ovalbutton.gif)
 <br><br>
 ## 使用说明

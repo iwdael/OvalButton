@@ -1,5 +1,8 @@
-# OvalButton  [![](https://jitpack.io/v/hacknife/ovalbutton.svg)](https://jitpack.io/#hacknife/ovalbutton)
+# OvalButton
+[![](https://img.shields.io/badge/platform-android-orange.svg)](https://github.com/hacknife) [![](https://img.shields.io/badge/language-java-yellow.svg)](https://github.com/hacknife) [![](https://img.shields.io/badge/Jcenter-1.1.3-brightgreen.svg)](https://github.com/hacknife) [![](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/hacknife) [![](https://img.shields.io/badge/license-apache--2.0-green.svg)](https://github.com/hacknife) [![](https://img.shields.io/badge/api-19+-green.svg)](https://github.com/hacknife)<br/><br/>
 OvalButton是一个椭圆形的IOS风格的开关控件，支持自定义宽高比例，色彩等。[English](https://github.com/hacknife/OvalButton/blob/master/README_ENGLISH.md)
+<br><br>![Text Image](https://github.com/hacknife/OvalButton/blob/master/ovalbutton.gif)
+<br><br>
 ## 使用说明
 ### 代码示例
 ```Java        
@@ -16,7 +19,7 @@ OvalButton是一个椭圆形的IOS风格的开关控件，支持自定义宽高�
         });
 ```
 ```Java
-    <com.absurd.ovalbutton.OvalButton
+    <com.hacknife.ovalbutton.OvalButton
         android:layout_width="300dp"
         android:layout_height="200dp"
         app:aspectRatio="2.0"
@@ -30,28 +33,17 @@ OvalButton是一个椭圆形的IOS风格的开关控件，支持自定义宽高�
 
 
 
-## 如何配置
-将本仓库引入你的项目:
-### Step 1. 添加JitPack仓库到Build文件
-合并以下代码到项目根目录下的build.gradle文件的repositories尾。[点击查看详情](https://github.com/hacknife/CarouselBanner/blob/master/root_build.gradle.png)
+## 快速引入项目
 
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
-  
-### Step 2. 添加依赖
-合并以下代码到需要使用的application Module的dependencies尾。[点击查看详情](https://github.com/hacknife/CarouselBanner/blob/master/application_build.gradle.png)
+合并以下代码到需要使用的application Module的dependencies尾。
 ```Java
 	dependencies {
 	  ...
-          compile 'com.github.hacknife:ovalbutton:v1.1.1'
+          compile 'com.hacknife:ovalbutton:1.1.3'
 	}
 ```	
-<br><br>
-![Text Image](https://github.com/hacknife/OvalButton/blob/master/ovalbutton.gif)
+
+
 <br><br><br>
 ## 感谢浏览
 如果你有任何疑问，请加入QQ群，我将竭诚为你解答。欢迎Star和Fork本仓库，当然也欢迎你关注我。
